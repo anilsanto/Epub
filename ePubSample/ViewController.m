@@ -17,9 +17,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
 
+//    bookView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 20, 320, self.view.frame.size.height)];
+//    bookView.scrollView.scrollEnabled=NO;
+//    bookView.scrollView.bounces=NO;
+//    [self.view addSubview:bookView];
+//    
+//    UISwipeGestureRecognizer* rightSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoNextPage)] ;
+//	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+//	
+//	UISwipeGestureRecognizer* leftSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)];
+//	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+//	
+//	[bookView addGestureRecognizer:rightSwipeRecognizer];
+//	[bookView addGestureRecognizer:leftSwipeRecognizer];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    EpubReaderViewController *epubReaderViewController=[[EpubReaderViewController alloc] initWithNibName:@"EpubReaderViewController"
+                                                                                                  bundle:nil];
+    
+    epubReaderViewController._strFileName=@"stoker-dracula";
+	[epubReaderViewController setTitlename:@"ePub Reader"];
+	[self presentViewController:epubReaderViewController animated:NO completion:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

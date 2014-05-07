@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZipArchive.h"
+#import "EpubReaderViewController.h"
 @interface ViewController : UIViewController
-
+{
+    UIWebView *bookView;
+}
 @end

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2A887051919E6ED0005F314 /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A887041919E6ED0005F314 /* DropDownView.m */; };
+		F2A88707191A0E6C0005F314 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A88706191A0E6C0005F314 /* QuartzCore.framework */; };
+		F2A8870C191A3ACE0005F314 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A8870B191A3ACE0005F314 /* SearchResult.m */; };
+		F2AA9F56191917CA0047BD33 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AA9F55191917CA0047BD33 /* Chapter.m */; };
+		F2AC7AA91911009700B26810 /* ebook-glue (2).epub in Resources */ = {isa = PBXBuildFile; fileRef = F2AC7AA81911002700B26810 /* ebook-glue (2).epub */; };
+		F2B15A8E1913B876003F3AA9 /* SearchWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B15A8D1913B876003F3AA9 /* SearchWebView.m */; };
+		F2B15A911913C921003F3AA9 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = F2B15A901913C921003F3AA9 /* SearchWebView.js */; };
+		F2B15A921913C92B003F3AA9 /* SearchWebView.js in Resources */ = {isa = PBXBuildFile; fileRef = F2B15A901913C921003F3AA9 /* SearchWebView.js */; };
 		F2B8C9EF190F7CE900B7152F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8C9EE190F7CE900B7152F /* Foundation.framework */; };
 		F2B8C9F1190F7CE900B7152F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8C9F0190F7CE900B7152F /* CoreGraphics.framework */; };
 		F2B8C9F3190F7CE900B7152F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8C9F2190F7CE900B7152F /* UIKit.framework */; };
@@ -21,6 +29,23 @@
 		F2B8CA10190F7CE900B7152F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8C9F2190F7CE900B7152F /* UIKit.framework */; };
 		F2B8CA18190F7CE900B7152F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA16190F7CE900B7152F /* InfoPlist.strings */; };
 		F2B8CA1A190F7CE900B7152F /* ePubSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA19190F7CE900B7152F /* ePubSampleTests.m */; };
+		F2B8CA74190F8EA700B7152F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA6A190F8EA700B7152F /* ioapi.c */; };
+		F2B8CA75190F8EA700B7152F /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA6C190F8EA700B7152F /* mztools.c */; };
+		F2B8CA76190F8EA700B7152F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA6E190F8EA700B7152F /* unzip.c */; };
+		F2B8CA77190F8EA700B7152F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA70190F8EA700B7152F /* zip.c */; };
+		F2B8CA78190F8EA700B7152F /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA73190F8EA700B7152F /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F2B8CA7A190F8F8600B7152F /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8CA79190F8F8600B7152F /* libz.1.2.5.dylib */; };
+		F2B8CA7E190FA2EF00B7152F /* EpubContent.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA7D190FA2EF00B7152F /* EpubContent.m */; };
+		F2B8CA82190FA30300B7152F /* XMLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA81190FA30300B7152F /* XMLHandler.m */; };
+		F2B8CA85190FA35300B7152F /* EpubReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA84190FA35300B7152F /* EpubReaderViewController.m */; };
+		F2B8CA8C190FAE2F00B7152F /* a.epub in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA8A190FAE1200B7152F /* a.epub */; };
+		F2B8CA8D190FAE3400B7152F /* stoker-dracula.epub in Sources */ = {isa = PBXBuildFile; fileRef = F2B8CA8B190FAE1200B7152F /* stoker-dracula.epub */; };
+		F2B8CA8E190FAFE300B7152F /* a.epub in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA8A190FAE1200B7152F /* a.epub */; };
+		F2B8CA8F190FAFE300B7152F /* stoker-dracula.epub in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA8B190FAE1200B7152F /* stoker-dracula.epub */; };
+		F2B8CA91190FB01000B7152F /* EpubReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA90190FB01000B7152F /* EpubReaderViewController.xib */; };
+		F2B8CA93190FB38F00B7152F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B8CA92190FB38F00B7152F /* AVFoundation.framework */; };
+		F2B8CA95190FC3E900B7152F /* regime-anticancer-arabic.epub in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA94190FC3E300B7152F /* regime-anticancer-arabic.epub */; };
+		F2B8CA97190FD82100B7152F /* spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub in Resources */ = {isa = PBXBuildFile; fileRef = F2B8CA96190FD81B00B7152F /* spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +59,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F2A887031919E6ED0005F314 /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
+		F2A887041919E6ED0005F314 /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
+		F2A88706191A0E6C0005F314 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F2A8870A191A3ACE0005F314 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		F2A8870B191A3ACE0005F314 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		F2AA9F54191917CA0047BD33 /* Chapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
+		F2AA9F55191917CA0047BD33 /* Chapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		F2AC7AA81911002700B26810 /* ebook-glue (2).epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ebook-glue (2).epub"; sourceTree = "<group>"; };
+		F2B15A8C1913B876003F3AA9 /* SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWebView.h; sourceTree = "<group>"; };
+		F2B15A8D1913B876003F3AA9 /* SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWebView.m; sourceTree = "<group>"; };
+		F2B15A901913C921003F3AA9 /* SearchWebView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SearchWebView.js; sourceTree = "<group>"; };
 		F2B8C9EB190F7CE900B7152F /* ePubSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ePubSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B8C9EE190F7CE900B7152F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F2B8C9F0190F7CE900B7152F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +89,30 @@
 		F2B8CA15190F7CE900B7152F /* ePubSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ePubSampleTests-Info.plist"; sourceTree = "<group>"; };
 		F2B8CA17190F7CE900B7152F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2B8CA19190F7CE900B7152F /* ePubSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ePubSampleTests.m; sourceTree = "<group>"; };
+		F2B8CA69190F8EA700B7152F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		F2B8CA6A190F8EA700B7152F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		F2B8CA6B190F8EA700B7152F /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		F2B8CA6C190F8EA700B7152F /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		F2B8CA6D190F8EA700B7152F /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		F2B8CA6E190F8EA700B7152F /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		F2B8CA6F190F8EA700B7152F /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		F2B8CA70190F8EA700B7152F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		F2B8CA71190F8EA700B7152F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		F2B8CA72190F8EA700B7152F /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		F2B8CA73190F8EA700B7152F /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		F2B8CA79190F8F8600B7152F /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		F2B8CA7C190FA2EF00B7152F /* EpubContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpubContent.h; sourceTree = "<group>"; };
+		F2B8CA7D190FA2EF00B7152F /* EpubContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpubContent.m; sourceTree = "<group>"; };
+		F2B8CA80190FA30300B7152F /* XMLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHandler.h; sourceTree = "<group>"; };
+		F2B8CA81190FA30300B7152F /* XMLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLHandler.m; sourceTree = "<group>"; };
+		F2B8CA83190FA35300B7152F /* EpubReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpubReaderViewController.h; sourceTree = "<group>"; };
+		F2B8CA84190FA35300B7152F /* EpubReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpubReaderViewController.m; sourceTree = "<group>"; };
+		F2B8CA8A190FAE1200B7152F /* a.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = a.epub; sourceTree = "<group>"; };
+		F2B8CA8B190FAE1200B7152F /* stoker-dracula.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "stoker-dracula.epub"; sourceTree = "<group>"; };
+		F2B8CA90190FB01000B7152F /* EpubReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpubReaderViewController.xib; sourceTree = "<group>"; };
+		F2B8CA92190FB38F00B7152F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F2B8CA94190FC3E300B7152F /* regime-anticancer-arabic.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "regime-anticancer-arabic.epub"; sourceTree = "<group>"; };
+		F2B8CA96190FD81B00B7152F /* spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A88707191A0E6C0005F314 /* QuartzCore.framework in Frameworks */,
+				F2B8CA93190FB38F00B7152F /* AVFoundation.framework in Frameworks */,
+				F2B8CA7A190F8F8600B7152F /* libz.1.2.5.dylib in Frameworks */,
 				F2B8C9F1190F7CE900B7152F /* CoreGraphics.framework in Frameworks */,
 				F2B8C9F3190F7CE900B7152F /* UIKit.framework in Frameworks */,
 				F2B8C9EF190F7CE900B7152F /* Foundation.framework in Frameworks */,
@@ -79,9 +142,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2A887021919E6CA0005F314 /* Chapter List  */ = {
+			isa = PBXGroup;
+			children = (
+				F2A887031919E6ED0005F314 /* DropDownView.h */,
+				F2A887041919E6ED0005F314 /* DropDownView.m */,
+			);
+			name = "Chapter List ";
+			sourceTree = "<group>";
+		};
+		F2A88708191A31E40005F314 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F2B15A8C1913B876003F3AA9 /* SearchWebView.h */,
+				F2B15A8D1913B876003F3AA9 /* SearchWebView.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
+		F2A88709191A3AAE0005F314 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				F2A8870A191A3ACE0005F314 /* SearchResult.h */,
+				F2A8870B191A3ACE0005F314 /* SearchResult.m */,
+			);
+			name = SearchResult;
+			sourceTree = "<group>";
+		};
+		F2AA9F531919179B0047BD33 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA9F54191917CA0047BD33 /* Chapter.h */,
+				F2AA9F55191917CA0047BD33 /* Chapter.m */,
+			);
+			name = Chapter;
+			sourceTree = "<group>";
+		};
 		F2B8C9E2190F7CE900B7152F = {
 			isa = PBXGroup;
 			children = (
+				F2A88709191A3AAE0005F314 /* SearchResult */,
+				F2A88708191A31E40005F314 /* WebView */,
+				F2A887021919E6CA0005F314 /* Chapter List  */,
+				F2B15A901913C921003F3AA9 /* SearchWebView.js */,
+				F2AC7AA81911002700B26810 /* ebook-glue (2).epub */,
+				F2B8CA94190FC3E300B7152F /* regime-anticancer-arabic.epub */,
+				F2B8CA8A190FAE1200B7152F /* a.epub */,
+				F2B8CA8B190FAE1200B7152F /* stoker-dracula.epub */,
+				F2B8CA96190FD81B00B7152F /* spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub */,
+				F2AA9F531919179B0047BD33 /* Chapter */,
+				F2B8CA7F190FA2F700B7152F /* Helper */,
+				F2B8CA7B190FA2CF00B7152F /* Model */,
+				F2B8CA67190F8EA700B7152F /* ZipArchive */,
 				F2B8C9F4190F7CE900B7152F /* ePubSample */,
 				F2B8CA13190F7CE900B7152F /* ePubSampleTests */,
 				F2B8C9ED190F7CE900B7152F /* Frameworks */,
@@ -101,6 +213,9 @@
 		F2B8C9ED190F7CE900B7152F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2A88706191A0E6C0005F314 /* QuartzCore.framework */,
+				F2B8CA92190FB38F00B7152F /* AVFoundation.framework */,
+				F2B8CA79190F8F8600B7152F /* libz.1.2.5.dylib */,
 				F2B8C9EE190F7CE900B7152F /* Foundation.framework */,
 				F2B8C9F0190F7CE900B7152F /* CoreGraphics.framework */,
 				F2B8C9F2190F7CE900B7152F /* UIKit.framework */,
@@ -117,6 +232,9 @@
 				F2B8CA00190F7CE900B7152F /* Main.storyboard */,
 				F2B8CA03190F7CE900B7152F /* ViewController.h */,
 				F2B8CA04190F7CE900B7152F /* ViewController.m */,
+				F2B8CA83190FA35300B7152F /* EpubReaderViewController.h */,
+				F2B8CA84190FA35300B7152F /* EpubReaderViewController.m */,
+				F2B8CA90190FB01000B7152F /* EpubReaderViewController.xib */,
 				F2B8CA06190F7CE900B7152F /* Images.xcassets */,
 				F2B8C9F5190F7CE900B7152F /* Supporting Files */,
 			);
@@ -150,6 +268,50 @@
 				F2B8CA16190F7CE900B7152F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2B8CA67190F8EA700B7152F /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8CA68190F8EA700B7152F /* minizip */,
+				F2B8CA72190F8EA700B7152F /* ZipArchive.h */,
+				F2B8CA73190F8EA700B7152F /* ZipArchive.mm */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		F2B8CA68190F8EA700B7152F /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8CA69190F8EA700B7152F /* crypt.h */,
+				F2B8CA6A190F8EA700B7152F /* ioapi.c */,
+				F2B8CA6B190F8EA700B7152F /* ioapi.h */,
+				F2B8CA6C190F8EA700B7152F /* mztools.c */,
+				F2B8CA6D190F8EA700B7152F /* mztools.h */,
+				F2B8CA6E190F8EA700B7152F /* unzip.c */,
+				F2B8CA6F190F8EA700B7152F /* unzip.h */,
+				F2B8CA70190F8EA700B7152F /* zip.c */,
+				F2B8CA71190F8EA700B7152F /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		F2B8CA7B190FA2CF00B7152F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8CA7C190FA2EF00B7152F /* EpubContent.h */,
+				F2B8CA7D190FA2EF00B7152F /* EpubContent.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F2B8CA7F190FA2F700B7152F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8CA80190FA30300B7152F /* XMLHandler.h */,
+				F2B8CA81190FA30300B7152F /* XMLHandler.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +390,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B15A921913C92B003F3AA9 /* SearchWebView.js in Resources */,
+				F2AC7AA91911009700B26810 /* ebook-glue (2).epub in Resources */,
+				F2B8CA97190FD82100B7152F /* spreeframeworkoverview-130923110640-phpapp - Martin Hong.epub in Resources */,
+				F2B8CA95190FC3E900B7152F /* regime-anticancer-arabic.epub in Resources */,
+				F2B8CA8E190FAFE300B7152F /* a.epub in Resources */,
+				F2B8CA91190FB01000B7152F /* EpubReaderViewController.xib in Resources */,
+				F2B8CA8F190FAFE300B7152F /* stoker-dracula.epub in Resources */,
 				F2B8CA07190F7CE900B7152F /* Images.xcassets in Resources */,
 				F2B8C9F9190F7CE900B7152F /* InfoPlist.strings in Resources */,
 				F2B8CA02190F7CE900B7152F /* Main.storyboard in Resources */,
@@ -249,9 +418,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A8870C191A3ACE0005F314 /* SearchResult.m in Sources */,
+				F2B8CA8D190FAE3400B7152F /* stoker-dracula.epub in Sources */,
+				F2B8CA8C190FAE2F00B7152F /* a.epub in Sources */,
+				F2A887051919E6ED0005F314 /* DropDownView.m in Sources */,
+				F2B15A8E1913B876003F3AA9 /* SearchWebView.m in Sources */,
+				F2B8CA76190F8EA700B7152F /* unzip.c in Sources */,
 				F2B8CA05190F7CE900B7152F /* ViewController.m in Sources */,
+				F2B8CA78190F8EA700B7152F /* ZipArchive.mm in Sources */,
 				F2B8C9FF190F7CE900B7152F /* AppDelegate.m in Sources */,
+				F2B8CA7E190FA2EF00B7152F /* EpubContent.m in Sources */,
+				F2B8CA74190F8EA700B7152F /* ioapi.c in Sources */,
+				F2B8CA77190F8EA700B7152F /* zip.c in Sources */,
 				F2B8C9FB190F7CE900B7152F /* main.m in Sources */,
+				F2AA9F56191917CA0047BD33 /* Chapter.m in Sources */,
+				F2B8CA82190FA30300B7152F /* XMLHandler.m in Sources */,
+				F2B8CA85190FA35300B7152F /* EpubReaderViewController.m in Sources */,
+				F2B8CA75190F8EA700B7152F /* mztools.c in Sources */,
+				F2B15A911913C921003F3AA9 /* SearchWebView.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +640,7 @@
 				F2B8CA1F190F7CE900B7152F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2B8CA20190F7CE900B7152F /* Build configuration list for PBXNativeTarget "ePubSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +649,7 @@
 				F2B8CA22190F7CE900B7152F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
