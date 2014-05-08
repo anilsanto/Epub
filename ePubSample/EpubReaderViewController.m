@@ -247,7 +247,7 @@
 - (void)unzipAndSaveFile{
 	
 	ZipArchive* za = [[ZipArchive alloc] init];
-    if( [za UnzipOpenFile:[[NSBundle mainBundle] pathForResource:@"a" ofType:@"epub"]] ){
+    if( [za UnzipOpenFile:[[NSBundle mainBundle] pathForResource:@"stoker-dracula" ofType:@"epub"]] ){
 		
 		NSString *strPath=[NSString stringWithFormat:@"%@/UnzippedEpub",[self applicationDocumentsDirectory]];
 		//Delete all the previous files

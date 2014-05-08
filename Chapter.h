@@ -19,5 +19,8 @@
 }
 @property (nonatomic, strong) NSMutableArray *chapterTitle;
 @property (nonatomic, retain) id<ChapterDelegate> delegate;
+@property (nonatomic, readonly) int pageCount, chapterIndex, fontPercentSize;
+@property (nonatomic, readonly) NSString *spinePath, *title, *text;
 - (void)parseXMLFileAt:(NSString*)strPath;
+- (id) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex;
 @end

@@ -1,7 +1,7 @@
 
 
 #import "XMLHandler.h"
-
+#import "Chapter.h"
 
 @implementation XMLHandler
 @synthesize delegate;
@@ -81,7 +81,17 @@
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-	
-
+    int count=0;
+    NSMutableArray *tmpArray=[[NSMutableArray alloc]init];
+    for (id element in _epubContent._spine) {
+        NSString* chapHref = [_epubContent._manifest valueForKey:element];
+        
+        Chapter* tmpChapter = [[Chapter alloc] initWithPath:[NSString stringWithFormat:@"%@%@", _rootPath, chapHref]
+                                                      title:[_epubContent._manifest valueForKey:element]
+                                               chapterIndex:count++];
+		[tmpArray addObject:tmpChapter];
+		
+	}
+    _chapterArray=[NSArray arrayWithArray:tmpArray];
 }
 @end

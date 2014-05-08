@@ -22,5 +22,6 @@
 }
 
 @property (nonatomic, retain) id<XMLHandlerDelegate> delegate;
+@property (nonatomic,strong)NSArray *chapterArray;
 - (void)parseXMLFileAt:(NSString*)strPath;
 @end

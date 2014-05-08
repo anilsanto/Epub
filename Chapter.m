@@ -7,10 +7,23 @@
 //
 
 #import "Chapter.h"
-
+#import "NSString+HTML.h"
 @implementation Chapter
 {
     int temp;
+}
+@synthesize chapterIndex, title, pageCount, spinePath, text;
+- (id) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex{
+    if((self=[super init])){
+        spinePath =theSpinePath;
+        title = theTitle;
+        chapterIndex = theIndex;
+        
+		NSString* html = [[NSString alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:theSpinePath]] encoding:NSUTF8StringEncoding];
+		text = [html stringByConvertingHTMLToPlainText];
+		
+    }
+    return self;
 }
 - (void)parseXMLFileAt:(NSString*)strPath{
     temp=0;
