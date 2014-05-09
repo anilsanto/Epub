@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EpubContent.h"
-//#import "UIWebView+SearchWebView.h"
+#import "UIWebView+SearchWebView.h"
 @interface SearchResult : NSObject<UIWebViewDelegate>
 {
     int currentChapterIndex;

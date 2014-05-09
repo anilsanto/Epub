@@ -38,6 +38,8 @@
         [webView setDelegate:self];
         NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:chapter.spinePath]];
         [webView loadRequest:urlRequest];
+        [self.bgView addSubview:webView];
+        webView.hidden=YES;
     } else {
         if((currentChapterIndex+1)<[self.ePubContent._spine count]){
             [self searchString:query inChapterAtIndex:(currentChapterIndex+1)];
@@ -78,7 +80,7 @@
 	
     [webView stringByEvaluatingJavaScriptFromString:setTextSizeRule];
     
-//    [webView highlightAllOccurencesOfString:self.currentQuery];
+    [webView highlightAllOccurencesOfString:self.currentQuery];
     
     NSString* foundHits = [webView stringByEvaluatingJavaScriptFromString:@"results"];
     
