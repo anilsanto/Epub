@@ -14,6 +14,7 @@
 		F2A94145191B5D5D0064E615 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A94143191B5D5D0064E615 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F2AA9F56191917CA0047BD33 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AA9F55191917CA0047BD33 /* Chapter.m */; };
 		F2AC7AA91911009700B26810 /* ebook-glue (2).epub in Resources */ = {isa = PBXBuildFile; fileRef = F2AC7AA81911002700B26810 /* ebook-glue (2).epub */; };
+		F2AD316E191CDBAE00A2A004 /* UIWebView+SearchWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD316D191CDBAE00A2A004 /* UIWebView+SearchWebView.m */; };
 		F2B15A8E1913B876003F3AA9 /* SearchWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B15A8D1913B876003F3AA9 /* SearchWebView.m */; };
 		F2B15A911913C921003F3AA9 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = F2B15A901913C921003F3AA9 /* SearchWebView.js */; };
 		F2B15A921913C92B003F3AA9 /* SearchWebView.js in Resources */ = {isa = PBXBuildFile; fileRef = F2B15A901913C921003F3AA9 /* SearchWebView.js */; };
@@ -74,6 +75,8 @@
 		F2AA9F54191917CA0047BD33 /* Chapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
 		F2AA9F55191917CA0047BD33 /* Chapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
 		F2AC7AA81911002700B26810 /* ebook-glue (2).epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ebook-glue (2).epub"; sourceTree = "<group>"; };
+		F2AD316C191CDBAE00A2A004 /* UIWebView+SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+SearchWebView.h"; sourceTree = "<group>"; };
+		F2AD316D191CDBAE00A2A004 /* UIWebView+SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+SearchWebView.m"; sourceTree = "<group>"; };
 		F2B15A8C1913B876003F3AA9 /* SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWebView.h; sourceTree = "<group>"; };
 		F2B15A8D1913B876003F3AA9 /* SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWebView.m; sourceTree = "<group>"; };
 		F2B15A901913C921003F3AA9 /* SearchWebView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SearchWebView.js; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 			children = (
 				F2B15A8C1913B876003F3AA9 /* SearchWebView.h */,
 				F2B15A8D1913B876003F3AA9 /* SearchWebView.m */,
+				F2AD316C191CDBAE00A2A004 /* UIWebView+SearchWebView.h */,
+				F2AD316D191CDBAE00A2A004 /* UIWebView+SearchWebView.m */,
 			);
 			name = WebView;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				F2B8CA8C190FAE2F00B7152F /* a.epub in Sources */,
 				F2A887051919E6ED0005F314 /* DropDownView.m in Sources */,
 				F2B15A8E1913B876003F3AA9 /* SearchWebView.m in Sources */,
+				F2AD316E191CDBAE00A2A004 /* UIWebView+SearchWebView.m in Sources */,
 				F2B8CA76190F8EA700B7152F /* unzip.c in Sources */,
 				F2B8CA05190F7CE900B7152F /* ViewController.m in Sources */,
 				F2B8CA78190F8EA700B7152F /* ZipArchive.mm in Sources */,

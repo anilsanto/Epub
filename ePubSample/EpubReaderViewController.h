@@ -4,7 +4,7 @@
 #import "ZipArchive.h" 
 #import "XMLHandler.h"
 #import "EpubContent.h"
-#import "SearchWebView.h"
+#import "UIWebView+SearchWebView.h"
 #import "Chapter.h"
 #import "DropDownView.h"
 #import "SearchResult.h"
@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 @interface EpubReaderViewController : UIViewController<XMLHandlerDelegate,ChapterDelegate,UIWebViewDelegate,UISearchBarDelegate,DropDownViewDelegate,UITableViewDataSource,UITableViewDelegate> {
 
-	IBOutlet SearchWebView*_webview;
+	IBOutlet UIWebView*_webview;
 	IBOutlet UIImageView *_backGroundImage;
 	IBOutlet UILabel *_pageNumberLbl;
 	XMLHandler *_xmlHandler;
@@ -32,6 +32,8 @@
     UIView *searchDisplayView;
     NSMutableArray *resultArray;
     UITableView *searchResult;
+    
+    SearchResult *searchObj;
     
     BOOL searching;
     int index;

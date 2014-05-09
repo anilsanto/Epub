@@ -86,12 +86,18 @@
     for (id element in _epubContent._spine) {
         NSString* chapHref = [_epubContent._manifest valueForKey:element];
         
-        Chapter* tmpChapter = [[Chapter alloc] initWithPath:[NSString stringWithFormat:@"%@%@", _rootPath, chapHref]
-                                                      title:[_epubContent._manifest valueForKey:element]
+        Chapter* tmpChapter = [[Chapter alloc] initWithPath:[NSString stringWithFormat:@"%@/UnzippedEpub/OPS/%@",[self applicationDocumentsDirectory] ,chapHref]
+                                                      title:element
                                                chapterIndex:count++];
 		[tmpArray addObject:tmpChapter];
 		
 	}
     _chapterArray=[NSArray arrayWithArray:tmpArray];
+}
+- (NSString *)applicationDocumentsDirectory {
+	
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
 }
 @end

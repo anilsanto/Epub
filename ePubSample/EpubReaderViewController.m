@@ -25,7 +25,7 @@
 	leftSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     
-    _webview=[[SearchWebView alloc]initWithFrame:CGRectMake(0, 50, 320, self.view.frame.size.height-130)];
+    _webview=[[UIWebView alloc]initWithFrame:CGRectMake(0, 50, 320, self.view.frame.size.height-130)];
 	[_webview setBackgroundColor:[UIColor clearColor]];
     [_webview addGestureRecognizer:rightSwipeRecognizer];
     [_webview addGestureRecognizer:leftSwipeRecognizer];
@@ -49,7 +49,7 @@
     stop.backgroundColor=[UIColor blueColor];
     [stop addTarget:self action:@selector(tapped) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:stop];
-    [SearchWebView initMenu];
+    [UIWebView initMenu];
     
     UIButton *search =[[UIButton alloc]initWithFrame:CGRectMake(210,5 , 50, 30)];
     search.backgroundColor=[UIColor yellowColor];
@@ -444,28 +444,34 @@
     if(searchBar.text.length==0)
         [_webview removeAllHighlights];
     else{
-        int resultCount = [_webview highlightAllOccurencesOfString:searchBar.text];
-        NSLog(@"result:  %@",[_webview stringByEvaluatingJavaScriptFromString:@"results"]);
-        NSString *result=[_webview stringByEvaluatingJavaScriptFromString:@"results"];
-        NSLog(@"%d",resultCount);
-        NSArray *temp=[result componentsSeparatedByString:@";"];
-        for (int i=0; i<temp.count; i++) {
-            NSArray *temp1=[[temp objectAtIndex:i] componentsSeparatedByString:@","];
-            if(temp1.count==3){
-                SearchResult *obj=[[SearchResult alloc]init];
-                obj.hitIndex=_pageNumber;
-                obj.pageIndex=ceilf([[temp1 objectAtIndex:1] integerValue]/_webview.bounds.size.height);
-                obj.searchString=searchBar.text;
-                obj.fullText= [[temp1 objectAtIndex:2] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-                [resultArray addObject:obj];
-            }
-        }
-        [searchResult removeFromSuperview];
-        searchResult=nil;
-        searchResult=[[UITableView alloc]initWithFrame:CGRectMake(50,100, 220, searchDisplayView.frame.size.height-120) style:UITableViewStylePlain];
-        searchResult.delegate=self;
-        searchResult.dataSource=self;
-        [searchDisplayView addSubview:searchResult];
+//        int resultCount = [_webview highlightAllOccurencesOfString:searchBar.text];
+//        NSLog(@"result:  %@",[_webview stringByEvaluatingJavaScriptFromString:@"results"]);
+//        NSString *result=[_webview stringByEvaluatingJavaScriptFromString:@"results"];
+//        NSLog(@"%d",resultCount);
+//        NSArray *temp=[result componentsSeparatedByString:@";"];
+//        for (int i=0; i<temp.count; i++) {
+//            NSArray *temp1=[[temp objectAtIndex:i] componentsSeparatedByString:@","];
+//            if(temp1.count==3){
+//                SearchResult *obj=[[SearchResult alloc]init];
+//                obj.hitIndex=_pageNumber;
+//                obj.pageIndex=ceilf([[temp1 objectAtIndex:1] integerValue]/_webview.bounds.size.height);
+//                obj.searchString=searchBar.text;
+//                obj.fullText= [[temp1 objectAtIndex:2] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+//                [resultArray addObject:obj];
+//            }
+//        }
+//        [searchResult removeFromSuperview];
+//        searchResult=nil;
+//        searchResult=[[UITableView alloc]initWithFrame:CGRectMake(50,100, 220, searchDisplayView.frame.size.height-120) style:UITableViewStylePlain];
+//        searchResult.delegate=self;
+//        searchResult.dataSource=self;
+//        [searchDisplayView addSubview:searchResult];
+        
+        searchObj=[[SearchResult alloc]init];
+        searchObj.chapterArray=_xmlHandler.chapterArray;
+        searchObj.ePubContent=self._ePubContent;
+        searchObj.bgView=self.view;
+        [searchObj searchString:searchBar.text];
     }
 }
 #pragma mark Memory handlers
