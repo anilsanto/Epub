@@ -51,14 +51,13 @@
     [self.view addSubview:stop];
     [UIWebView initMenu];
     
-    UIButton *search =[[UIButton alloc]initWithFrame:CGRectMake(210,5 , 50, 30)];
+    UIButton *search =[[UIButton alloc]initWithFrame:CGRectMake(210,30 , 50, 30)];
     search.backgroundColor=[UIColor yellowColor];
     [search addTarget:self action:@selector(searchClicked) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:search];
     [self searchView];
 }
 -(void)searchView{
-    resultArray=[[NSMutableArray alloc]init];
     searchDisplayView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+20)];
     searchDisplayView.backgroundColor=[UIColor colorWithRed:((float) 239.0f / 255.0f)
                                                       green:((float) 237.0f/ 255.0f)
@@ -95,11 +94,14 @@
     searchDisplayView.hidden=YES;
 }
 -(void)gotoNextPage{
-    NSLog(@"width:%f",_webview.scrollView.contentSize.width);
+//    NSLog(@"width:%f",_webview.scrollView.contentSize.width);
     if((_webview.scrollView.contentOffset.x+320)<_webview.scrollView.contentSize.width){
         int x=_webview.scrollView.contentOffset.x+320;
-        CGPoint top = CGPointMake(x, 0);
-        [_webview.scrollView setContentOffset:top animated:YES];
+        NSString* goToOffsetFunc = [NSString stringWithFormat:@" function pageScroll(xOffset){ window.scroll(xOffset,0); } "];
+        NSString* goTo =[NSString stringWithFormat:@"pageScroll(%d)", x];
+        
+        [_webview stringByEvaluatingJavaScriptFromString:goToOffsetFunc];
+        [_webview stringByEvaluatingJavaScriptFromString:goTo];
     }
     else{
         _pageNumber++;
@@ -109,9 +111,13 @@
 -(void)gotoPrevPage{
         if((_webview.scrollView.contentOffset.x-320)>=0){
         int x=_webview.scrollView.contentOffset.x-320;
-        CGPoint top = CGPointMake(x, 0);
-        [_webview.scrollView setContentOffset:top animated:YES];
-    }
+            NSString* goToOffsetFunc = [NSString stringWithFormat:@" function pageScroll(xOffset){ window.scroll(xOffset,0); } "];
+            NSString* goTo =[NSString stringWithFormat:@"pageScroll(%d)", x];
+            
+            [_webview stringByEvaluatingJavaScriptFromString:goToOffsetFunc];
+            [_webview stringByEvaluatingJavaScriptFromString:goTo];
+
+        }
     else{
         _pageNumber--;
         [self loadPage];
@@ -126,21 +132,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UILabel *fullText;
     UILabel *pageText;
-    NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%ld,%ld",(long)indexPath.section,(long)indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newFriendCell"];
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        [cell setSelectionStyle: UITableViewCellSeparatorStyleSingleLine];
+//        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         cell.backgroundColor=[UIColor clearColor];
         
-        fullText=[[UILabel alloc]initWithFrame:CGRectMake(10, 5, 100, 20)];
+        fullText=[[UILabel alloc]initWithFrame:CGRectMake(10, 5, 310, 20)];
+        [fullText setNumberOfLines:2];
         fullText.font=[UIFont systemFontOfSize:12];
-        [cell addSubview:fullText];
+        fullText.tag=101;
+        [cell.contentView addSubview:fullText];
     
         pageText=[[UILabel alloc]initWithFrame:CGRectMake(10, 25, 200, 20)];
         pageText.font=[UIFont systemFontOfSize:12];
-        [cell addSubview:pageText];
-        
+        pageText.tag=102;
+        [cell.contentView addSubview:pageText];
+    
+    }
+    else{
+        fullText=(UILabel *)[cell.contentView viewWithTag:101];
+        pageText=(UILabel *)[cell.contentView viewWithTag:102];
     }
     fullText.text=[[resultArray objectAtIndex:indexPath.row] fullText];
     pageText.text=[NSString stringWithFormat:@"Chapter %d/Page %d",[[resultArray objectAtIndex:indexPath.row] hitIndex]-1,[[resultArray objectAtIndex:indexPath.row] pageIndex]];
@@ -151,15 +165,19 @@
     index=indexPath.row;
     searchDisplayView.hidden=YES;
     if(searching){
-        searching=NO;
-        int scrollY;
-        if ([[resultArray objectAtIndex:index] pageIndex]==1) {
-            scrollY=0;
+        if([[resultArray objectAtIndex:index] hitIndex]==_pageNumber){
+            int scrollY;
+            if ([[resultArray objectAtIndex:index] pageIndex]==1)
+                scrollY=0;
+            else
+                scrollY=([[resultArray objectAtIndex:index] pageIndex]-1)*320;
+            CGPoint top = CGPointMake(scrollY, 0);
+            [_webview.scrollView setContentOffset:top animated:YES];
         }
-        else
-            scrollY=([[resultArray objectAtIndex:index] pageIndex]-1)*320;
-        CGPoint top = CGPointMake(scrollY, 0);
-        [_webview.scrollView setContentOffset:top animated:YES];
+        else{
+            _pageNumber=[[resultArray objectAtIndex:index] hitIndex];
+            [self loadPage];
+        }
     }
 }
 -(void)chapterlist{
@@ -431,7 +449,22 @@
 	[_webview stringByEvaluatingJavaScriptFromString:insertRule2];
 	[_webview stringByEvaluatingJavaScriptFromString:setHighlightColorRule];
     
-    
+    if(searching){
+        searching=NO;
+        int scrollY;
+        if ([[resultArray objectAtIndex:index] pageIndex]==1)
+            scrollY=0;
+        else
+            scrollY=([[resultArray objectAtIndex:index] pageIndex])*320;
+        NSString* goToOffsetFunc = [NSString stringWithFormat:@" function pageScroll(xOffset){ window.scroll(xOffset,0); } "];
+        NSString* goTo =[NSString stringWithFormat:@"pageScroll(%d)", scrollY];
+        
+        [webView stringByEvaluatingJavaScriptFromString:goToOffsetFunc];
+        [webView stringByEvaluatingJavaScriptFromString:goTo];
+        [_webview highlightAllOccurencesOfString:[[resultArray objectAtIndex:index] searchString]];
+//        [_webview.scrollView setContentOffset:top animated:YES];
+//        NSLog(@"%f",_webview.bounds.size.width);
+    }
 }
 -(void)scroll{
     y=_webview.scrollView.contentOffset.x;
@@ -440,7 +473,6 @@
     [_webview.scrollView setContentOffset:top animated:YES];
 }
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [resultArray removeAllObjects];
     if(searchBar.text.length==0)
         [_webview removeAllHighlights];
     else{
@@ -471,8 +503,19 @@
         searchObj.chapterArray=_xmlHandler.chapterArray;
         searchObj.ePubContent=self._ePubContent;
         searchObj.bgView=self.view;
+        searchObj.delegate=self;
         [searchObj searchString:searchBar.text];
     }
+}
+-(void)finishedSearching :(NSArray *)ResultArray{
+    resultArray=ResultArray;
+    [searchResult removeFromSuperview];
+    searchResult=nil;
+    searchResult=[[UITableView alloc]initWithFrame:CGRectMake(50,100, 220, searchDisplayView.frame.size.height-120) style:UITableViewStylePlain];
+    searchResult.delegate=self;
+    searchResult.dataSource=self;
+    [searchDisplayView addSubview:searchResult];
+
 }
 #pragma mark Memory handlers
 - (void)didReceiveMemoryWarning {

@@ -41,7 +41,7 @@
     NSData *fileData  = [NSData dataWithContentsOfFile:filePath];
     NSString *jsString  = [[NSMutableString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
     [self stringByEvaluatingJavaScriptFromString:jsString];
-    NSString *startSearch = [NSString stringWithFormat:@"highlightText('%@',%@)",str,pos];
+    NSString *startSearch = [NSString stringWithFormat:@"gettagfunction()"];
     
     [self stringByEvaluatingJavaScriptFromString:startSearch];
     NSString *result= [self stringByEvaluatingJavaScriptFromString:@"Selection"];
@@ -80,6 +80,9 @@
     if (action == @selector(a:) || action == @selector(b:))
     {
         can = YES;
+    }
+    else{
+        NO;
     }
     NSLog(@"%@ perform action %@ with sender %@.", can ? @"can" : @"cannot", NSStringFromSelector(action), sender);
     return can;

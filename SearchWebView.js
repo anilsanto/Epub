@@ -6,6 +6,7 @@ var results = "";
 var temp="";
 var neighSize = 20;
 var idrange;
+var htmlinner;
 // helper function, recursively searches in elements and their child nodes
 function HighlightAllOccurencesOfStringForElement(element,keyword) {
     if (element) {
@@ -140,38 +141,53 @@ function HighlightString(element,keyword,pos) {
 }
 
 function gettagfunction (){
-	
+	var length=0;
 	var parent = document.getElementsByClassName('chapter')[0];
 	var children = parent.childNodes;
     var tag=window.getSelection().baseNode.parentNode;
 	var count = children.length;
 	var child_index;
-	for (var i = 0; i < count; i++) { children[i];
+	for (var i = 0; i < count; i++) {
         if (tag === children[i]) {
             child_index = i;
             break;
         }
 	}
-	var temp=children[3].childNodes[0].nodeValue;
-    alert(temp.indexOf('Pan'));
-    var pos=52;
-    var keyword=document.getSelection().toString().length;
-    HighlightString(children[3].childNodes[0],keyword,pos);
-    
-    
-    
-}
-function gettagindex (){
-	var child=window.getSelection().baseNode.parentNode;
-	var parent = document.getElementsByClassName('chapter')[0];
-	var children = parent.childNodes;
-	var count = children.length;
-	var child_index;
-	for (var i = 0; i < count; i++) { children[i];
-        if (child === children[i]) {
-            child_index = i;
-            break;
+	var temp=children[child_index].innerHTML;
+	var templength=temp.length;
+	var samp=children[child_index].children.length;
+	if(samp>0){
+        var tempchild=children[child_index].childNodes;
+        var tempcount=tempchild.length;
+        var child_index1;
+        var tag=window.getSelection().baseNode;
+        for (var i = 0; i < tempcount; i++) {
+            if (tag === tempchild[i]) {
+                child_index1 = i;
+                break;
+            }
+            else{
+                if(tempchild[i].nodeType==3)
+                    length+=tempchild[i].length;
+                else{
+                    var samp1=tempchild[i].innerHTML;
+                    length+=samp1.length+73;
+                }
+            }
         }
+        var pos=length+window.getSelection().getRangeAt(0).startOffset
 	}
-	alert( children[i]('pan'));
+	else{
+		var pos=window.getSelection().getRangeAt(0).startOffset;
+		
+	}
+    alert(length);
+    var keyword=document.getSelection().toString().length;
+    temp=insertAt(temp,pos+keyword,'</mark>');
+    temp=insertAt(temp,pos,'<mark class="MyAppHighlight">');
+    children[child_index].innerHTML=temp;
+	htmlinner=children[child_index].innerHTML;
+}
+function insertAt(src, index, str) {
+    return src.substr(0, index) + str + src.substr(index)
 }

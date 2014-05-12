@@ -30,7 +30,7 @@
     
     
     UIView *searchDisplayView;
-    NSMutableArray *resultArray;
+    NSArray *resultArray;
     UITableView *searchResult;
     
     SearchResult *searchObj;

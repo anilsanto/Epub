@@ -12,6 +12,7 @@
 -(void) searchString:(NSString*)query{
     self.results = [[NSMutableArray alloc] init];
     self.currentQuery=query;
+    count=0;
     for (int i=0; i<_ePubContent._spine.count;i++) {
         [self searchString:query inChapterAtIndex:i];
     }
@@ -19,7 +20,6 @@
 }
 
 - (void) searchString:(NSString *)query inChapterAtIndex:(int)index{
-    
     currentChapterIndex = index;
     Chapter *chapter=[self.chapterArray objectAtIndex:index];
     
@@ -38,6 +38,7 @@
         [webView setDelegate:self];
         NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:chapter.spinePath]];
         [webView loadRequest:urlRequest];
+        webView.tag=currentChapterIndex;
         [self.bgView addSubview:webView];
         webView.hidden=YES;
     } else {
@@ -116,23 +117,28 @@
         }
     }];
     
-    
+
     for(int i=0; i<[orderedRes count]; i++){
         NSArray* currObj = [orderedRes objectAtIndex:i];
         SearchResult *obj=[[SearchResult alloc]init];
-        obj.hitIndex=currentChapterIndex;
-        obj.pageIndex=ceilf([[currObj objectAtIndex:1] intValue]/webView.bounds.size.height);
+        obj.hitIndex=webView.tag;
+        obj.pageIndex=([[currObj objectAtIndex:1] intValue]/webView.bounds.size.height);
+        NSLog(@"%d",[[currObj objectAtIndex:1] intValue]);
+        NSLog(@"%f",webView.bounds.size.height);
+
         obj.searchString=_currentQuery;
         obj.fullText= [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"unescape('%@')", [currObj objectAtIndex:2]]];
         [_results addObject:obj];
     }
-    
+    count++;
     if((currentChapterIndex+1)<[self.ePubContent._spine count]){
         [self searchString:_currentQuery inChapterAtIndex:(currentChapterIndex+1)];
     } else {
 //    epubViewController.searching = NO;
     }
-    
+    if(self.ePubContent._spine.count==count){
+        [_delegate finishedSearching :_results];
+    }
 }
 
 @end

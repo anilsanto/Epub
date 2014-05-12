@@ -27,17 +27,17 @@
 {
     [self stringByEvaluatingJavaScriptFromString:@"RemoveAllHighlights()"];
 }
-- (NSInteger)highlightString :(NSString *)str :(NSString *)pos {
+- (NSString *)highlightString :(NSString *)str :(NSString *)pos {
     NSString *filePath  = [[NSBundle mainBundle] pathForResource:@"SearchWebView" ofType:@"js" inDirectory:@""];
     NSData *fileData  = [NSData dataWithContentsOfFile:filePath];
     NSString *jsString  = [[NSMutableString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
     [self stringByEvaluatingJavaScriptFromString:jsString];
-    NSString *startSearch = [NSString stringWithFormat:@"highlightText('%@',%@)",str,pos];
+    NSString *startSearch = [NSString stringWithFormat:@"gettagfunction()"];
     
     [self stringByEvaluatingJavaScriptFromString:startSearch];
-    NSString *result= [self stringByEvaluatingJavaScriptFromString:@"Selection"];
+    NSString *result= [self stringByEvaluatingJavaScriptFromString:@"htmlinner"];
     
-    return [result integerValue];
+    return result;
 }
 
 - (void)removeHighlights
@@ -57,8 +57,8 @@
     NSString *setHighlightColorRule = [NSString stringWithFormat:@"addCSSRule('mark', 'background-color: yellow;')"];
     [self stringByEvaluatingJavaScriptFromString:setHighlightColorRule];
     NSLog(@"Result  :  %@", [self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).startOffset"]);
-    int count=[self highlightString :[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"] :[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).startOffset"] ];
-    NSLog(@"%d",count);
+    NSString *count=[self highlightString :[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"] :[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).startOffset"] ];
+    NSLog(@"%@",count);
     
     
 }
@@ -71,6 +71,9 @@
     if (action == @selector(a:) || action == @selector(b:))
     {
         can = YES;
+    }
+    else{
+        return NO;
     }
     NSLog(@"%@ perform action %@ with sender %@.", can ? @"can" : @"cannot", NSStringFromSelector(action), sender);
     return can;

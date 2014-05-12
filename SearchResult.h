@@ -9,10 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "EpubContent.h"
 #import "UIWebView+SearchWebView.h"
+@protocol SearchResultDelegate <NSObject>
+
+@optional
+- (void)finishedSearching :(NSArray *)ResultArray;
+@end
 @interface SearchResult : NSObject<UIWebViewDelegate>
 {
     int currentChapterIndex;
+    int count;
 }
+@property (nonatomic, retain) id<SearchResultDelegate> delegate;
+
+
 @property(nonatomic)int pageIndex;
 @property(nonatomic,strong)NSString *fullText;
 @property(nonatomic)int hitIndex;
