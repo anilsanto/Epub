@@ -12,5 +12,4 @@
 - (NSInteger)highlightAllOccurencesOfString:(NSString*)str;
 - (void)removeAllHighlights;
 +(void)initMenu;
-
 @end

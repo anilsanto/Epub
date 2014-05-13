@@ -7,6 +7,7 @@ var temp="";
 var neighSize = 20;
 var idrange;
 var htmlinner;
+var pos;
 // helper function, recursively searches in elements and their child nodes
 function HighlightAllOccurencesOfStringForElement(element,keyword) {
     if (element) {
@@ -175,13 +176,13 @@ function gettagfunction (){
                 }
             }
         }
-        var pos=length+window.getSelection().getRangeAt(0).startOffset
+        pos=length+window.getSelection().getRangeAt(0).startOffset
 	}
 	else{
-		var pos=window.getSelection().getRangeAt(0).startOffset;
+		pos=window.getSelection().getRangeAt(0).startOffset;
 		
 	}
-    alert(length);
+    alert(pos);
     var keyword=document.getSelection().toString().length;
     temp=insertAt(temp,pos+keyword,'</mark>');
     temp=insertAt(temp,pos,'<mark class="MyAppHighlight">');
